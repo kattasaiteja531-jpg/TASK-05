@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Weather — Mobile</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="theme-color" content="#2563eb" />
+  </head>
+  <body>
+    <header class="app-bar" role="banner">
+      <h1 class="app-title text-balance">Weather</h1>
+      <div class="unit-toggle" role="group" aria-label="Temperature units">
+        <button id="unitC" class="seg active" data-unit="C" aria-pressed="true" type="button">°C</button>
+        <button id="unitF" class="seg" data-unit="F" aria-pressed="false" type="button">°F</button>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section aria-labelledby="search-heading" class="card p">
+        <h2 id="search-heading" class="sr-only">Search</h2>
+        <form id="searchForm" class="search">
+          <label for="q" class="sr-only">City</label>
+          <input id="q" name="q" type="text" inputmode="search" placeholder="Search city (e.g., London)" autocomplete="off" />
+          <button type="submit" class="btn primary">Search</button>
+          <button id="locateBtn" type="button" class="btn outline">Use My Location</button>
+        </form>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section aria-labelledby="current-heading" class="card p current">
+        <h2 id="current-heading" class="section-title">Now</h2>
+        <div class="current-row">
+          <div class="current-left">
+            <p id="place" class="place" title="Location">—</p>
+            <p id="updated" class="updated" title="Last updated">—</p>
+            <p id="condition" class="condition">—</p>
+            <div class="meta">
+              <span id="feels">Feels like —</span>
+              <span aria-hidden="true">•</span>
+              <span id="wind">Wind —</span>
+            </div>
+          </div>
+          <div class="current-right">
+            <div id="temp" class="temp">—</div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="hourly-heading" class="card p">
+        <h2 id="hourly-heading" class="section-title">Hourly</h2>
+        <ul id="hourly" class="hourly" role="list" aria-label="Hourly forecast">
+          <!-- Populated by JS -->
+        </ul>
+      </section>
+
+      <section aria-labelledby="daily-heading" class="card p">
+        <h2 id="daily-heading" class="section-title">Next 7 Days</h2>
+        <ul id="daily" class="daily" role="list" aria-label="7 day forecast">
+          <!-- Populated by JS -->
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <small>Data by Open‑Meteo • <span id="tz">—</span></small>
+      </footer>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
